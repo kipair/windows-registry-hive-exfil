@@ -45,3 +45,7 @@ DEFINE $ATTACKER_PORT 4444
 ```
 
 Upload your payload script to the O.MG device GUI and execute the script.
+
+## License
+
+MIT
