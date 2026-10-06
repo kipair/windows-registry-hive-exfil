@@ -1,9 +1,11 @@
 # windows-registry-hive-exfil
 
 `windows-registry-hive-exfil` is an O.MG Plug / DuckyScript payload that automatically dumps Windows Registry hives (`SYSTEM`, `SAM`, and `SECURITY`) and exfiltrates them over the network to a remote netcat listener.
+
 <p align="center">
   <img width="130" height="163" alt="omg" src="https://github.com/user-attachments/assets/b0130dfb-3ab0-41ee-8267-f5817fcab4a5" />
-<p>
+</p>
+
 ## Features
 
 * Randomizes USB device descriptors (`VID`, `PID`, serials) on boot
