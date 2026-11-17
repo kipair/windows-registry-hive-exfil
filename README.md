@@ -17,7 +17,7 @@
 
 ## Prerequisites
 
-* Windows 10/11 or Windows Server (requires Administrative privileges)
+* Windows 10/11 or Windows Server (requires Administrative privileges to bypass UAC)
 * O.MG Plug, USB Rubber Ducky, or compatible DuckyScript hardware
 * Listener machine reachable on target local network running `netcat` or `ncat`
 
